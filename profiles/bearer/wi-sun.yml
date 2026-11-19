@@ -1,0 +1,33 @@
+id: wi-sun
+name: Wi-SUN
+kind: rf
+pipe: both
+payloadBytes:
+  min: 50
+  typical: 200
+  max: 2048
+bitrateBps:
+  min: 50000
+  typical: 150000
+  max: 300000
+rangeM:
+  min: 50
+  typical: 500
+  max: 5000
+rangeNotes: "802.15.4g FAN; utility-scale field area network."
+ops:
+  direction: bidirectional
+  availability: session
+  coverage: regional
+  mobility: fixed
+  spectrum: unlicensed
+  outageTypicalS: 15
+  storeAndForward: false
+  geography:
+    markets:
+      - us
+      - eu
+      - jp
+      - au-nz
+    notes: Utility FAN / AMI field area meshes.
+packetNotes: 802.15.4g SUN FSK/OFDM; larger PSDUs than classic 15.4. Thin always; modest fat packs possible.

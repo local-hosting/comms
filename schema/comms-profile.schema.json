@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local-hosting.dev/schemas/comms-profile.json",
+  "title": "CommsProfile",
+  "description": "Planning envelope for RF, wired, and logical bearers — not a service guarantee.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "kind",
+    "pipe",
+    "payloadBytes",
+    "bitrateBps",
+    "rangeM",
+    "ops",
+    "packetNotes"
+  ],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+    "name": { "type": "string", "minLength": 1 },
+    "kind": { "type": "string", "enum": ["rf", "wired", "app"] },
+    "pipe": { "type": "string", "enum": ["thin", "fat", "both", "none"] },
+    "payloadBytes": { "$ref": "#/$defs/numericRange" },
+    "bitrateBps": { "$ref": "#/$defs/numericRange" },
+    "rangeM": { "$ref": "#/$defs/numericRange" },
+    "rangeNotes": { "type": "string" },
+    "ops": { "$ref": "#/$defs/ops" },
+    "packetNotes": { "type": "string", "minLength": 1 },
+    "latencyMs": { "$ref": "#/$defs/numericRange" },
+    "payloadBytesUplink": { "$ref": "#/$defs/numericRange" },
+    "payloadBytesDownlink": { "$ref": "#/$defs/numericRange" },
+    "specRefs": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 8, "format": "uri" }
+    },
+    "catalog": { "type": "string" },
+    "tags": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 },
+      "description": "Tag ids from profiles/tags.yml (set at build time in dist/catalog.json)."
+    }
+  },
+  "$defs": {
+    "numericRange": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["min", "typical", "max"],
+      "properties": {
+        "min": { "type": "number", "minimum": 0 },
+        "typical": { "type": "number", "minimum": 0 },
+        "max": { "type": "number", "minimum": 0 }
+      }
+    },
+    "ops": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "direction",
+        "availability",
+        "coverage",
+        "mobility",
+        "spectrum",
+        "outageTypicalS",
+        "storeAndForward",
+        "geography"
+      ],
+      "properties": {
+        "direction": {
+          "type": "string",
+          "enum": ["receive-only", "uplink-only", "downlink-limited", "bidirectional"]
+        },
+        "availability": {
+          "type": "string",
+          "enum": ["intermittent", "session", "always-on"]
+        },
+        "coverage": {
+          "type": "string",
+          "enum": ["touch", "personal", "local", "regional", "national", "global"]
+        },
+        "mobility": {
+          "type": "string",
+          "enum": ["fixed", "nomadic", "mobile"]
+        },
+        "spectrum": {
+          "type": "string",
+          "enum": ["unlicensed", "licensed", "licensed-exempt", "wired", "inherit", "n/a"]
+        },
+        "outageTypicalS": { "type": "number", "minimum": 0 },
+        "storeAndForward": { "type": "boolean" },
+        "geography": { "$ref": "#/$defs/geography" },
+        "usage": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "messagesPerDay": { "$ref": "#/$defs/numericRange" },
+            "dutyCyclePct": { "$ref": "#/$defs/numericRange" }
+          }
+        }
+      }
+    },
+    "geography": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["markets"],
+      "properties": {
+        "markets": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "rf": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "lorawan": { "type": "array", "items": { "type": "string" } },
+            "sigfoxRc": { "type": "array", "items": { "type": "string" } },
+            "zwave": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "notes": { "type": "string" }
+      }
+    }
+  }
+}

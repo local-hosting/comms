@@ -1,0 +1,71 @@
+id: sigfox
+name: Sigfox
+kind: rf
+pipe: thin
+payloadBytes:
+  min: 1
+  typical: 12
+  max: 12
+payloadBytesUplink:
+  min: 1
+  typical: 12
+  max: 12
+payloadBytesDownlink:
+  min: 1
+  typical: 8
+  max: 8
+bitrateBps:
+  min: 100
+  typical: 100
+  max: 600
+rangeM:
+  min: 1000
+  typical: 5000
+  max: 30000
+rangeNotes: "UNB 868/902 MHz; Sigfox RC1 rural figures up to tens of km."
+latencyMs:
+  min: 60000
+  typical: 300000
+  max: 3600000
+ops:
+  direction: downlink-limited
+  availability: intermittent
+  coverage: national
+  mobility: fixed
+  spectrum: unlicensed
+  outageTypicalS: 300
+  storeAndForward: true
+  usage:
+    messagesPerDay:
+      min: 1
+      typical: 140
+      max: 140
+  geography:
+    markets:
+      - eu
+      - uk
+      - us
+      - ca
+      - latam
+      - jp
+      - kr
+      - in
+      - apac
+      - au-nz
+      - mena
+      - africa
+      - ru
+    rf:
+      sigfoxRc:
+        - RC1
+        - RC2
+        - RC3
+        - RC4
+        - RC5
+        - RC6
+        - RC7
+    notes: Operator UNB; RC bands and sunset timelines vary by market.
+packetNotes: Uplink max 12 B payload, 140 msg/day classic. Downlink 8 B. Extremely constrained thin pipe only.
+specRefs:
+  - https://docs.aws.amazon.com/whitepapers/latest/implementing-lpwan-solutions-with-aws/sigfox.html
+catalog: sigfox

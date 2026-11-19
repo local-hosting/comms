@@ -1,0 +1,31 @@
+id: 2g
+name: 2G (GSM/GPRS/EDGE)
+kind: rf
+pipe: both
+payloadBytes:
+  min: 64
+  typical: 500
+  max: 1500
+bitrateBps:
+  min: 8000
+  typical: 40000
+  max: 200000
+rangeM:
+  min: 500
+  typical: 5000
+  max: 35000
+rangeNotes: "Macro cellular; highly site- and band-dependent."
+ops:
+  direction: bidirectional
+  availability: session
+  coverage: national
+  mobility: mobile
+  spectrum: licensed
+  outageTypicalS: 120
+  storeAndForward: false
+  geography:
+    markets:
+      - ww
+    notes: GSM/GPRS macro footprint; sunset in many regions — verify operator support.
+packetNotes: GPRS/EDGE IP; latency high. Prefer thin; fat heal only when session is up.
+catalog: 2g

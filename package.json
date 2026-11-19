@@ -1,0 +1,49 @@
+{
+  "name": "@local-hosting/comms",
+  "version": "0.3.0",
+  "description": "Comms bearer catalog (payload, bitrate, range, ops) for wire and modeler.",
+  "type": "module",
+  "license": "UNLICENSED",
+  "private": true,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json",
+    "./catalog.json": "./dist/catalog.json",
+    "./tags.json": "./dist/tags.json",
+    "./aliases.json": "./dist/aliases.json",
+    "./stack.json": "./dist/stack.json",
+    "./schema/comms-profile.schema.json": "./schema/comms-profile.schema.json",
+    "./schema/geography-registry.yml": "./schema/geography-registry.yml",
+    "./profiles/*": "./profiles/*",
+    "./profiles/*/*": "./profiles/*/*"
+  },
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "profiles",
+    "schema",
+    "README.md"
+  ],
+  "scripts": {
+    "validate": "node scripts/build.mjs --validate-only",
+    "build": "node scripts/build.mjs && tsc -p tsconfig.build.json",
+    "typecheck": "yarn build",
+    "test": "vitest run",
+    "pretest": "yarn build",
+    "prepack": "yarn build"
+  },
+  "devDependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "js-yaml": "^4.1.0",
+    "typescript": "^5.8.3",
+    "vitest": "^4.0.18"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

@@ -1,0 +1,37 @@
+id: uwb
+name: Ultra-Wideband (IEEE 802.15.4z)
+kind: rf
+pipe: both
+payloadBytes:
+  min: 20
+  typical: 127
+  max: 4095
+bitrateBps:
+  min: 6800000
+  typical: 27200000
+  max: 54000000
+rangeM:
+  min: 1
+  typical: 10
+  max: 200
+rangeNotes: "802.15.4z HRP UWB; FiRa-style indoor ranging 1–50 m typical."
+latencyMs:
+  min: 1
+  typical: 5
+  max: 20
+ops:
+  direction: bidirectional
+  availability: session
+  coverage: personal
+  mobility: nomadic
+  spectrum: unlicensed
+  outageTypicalS: 1
+  storeAndForward: false
+  geography:
+    markets:
+      - ww
+    notes: FCC 6–8.5 GHz and ETSI UWB bands; regional power caps.
+packetNotes: Short bursty 802.15.4z frames; fine for thin packed telemetry plus ranging side-channel.
+specRefs:
+  - https://www.ieee802.org/15/pub/IEEE%20Std%20802154z-2020.pdf
+catalog: uwb

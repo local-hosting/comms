@@ -1,0 +1,37 @@
+id: private-lte
+name: Private LTE (CBRS / OnGo)
+kind: rf
+pipe: both
+payloadBytes:
+  min: 64
+  typical: 1400
+  max: 9000
+bitrateBps:
+  min: 1000000
+  typical: 20000000
+  max: 100000000
+rangeM:
+  min: 200
+  typical: 2000
+  max: 15000
+rangeNotes: "Citizens Broadband / band 48 small cell; enterprise campus."
+latencyMs:
+  min: 10
+  typical: 35
+  max: 80
+ops:
+  direction: bidirectional
+  availability: session
+  coverage: local
+  mobility: nomadic
+  spectrum: licensed
+  outageTypicalS: 30
+  storeAndForward: false
+  geography:
+    markets:
+      - us
+    notes: "US CBRS PAL/GAA; private 4G/5G EPC/5GC on-site."
+packetNotes: Licensed private macro/small-cell IP; same MTU class as LTE with local core.
+specRefs:
+  - https://www.fcc.gov/wireless/bureau-divisions/mobility-division/35-ghz-band
+catalog: private-lte

@@ -1,0 +1,31 @@
+id: websocket
+name: WebSocket
+kind: app
+pipe: none
+payloadBytes:
+  min: 0
+  typical: 4096
+  max: 65536
+bitrateBps:
+  min: 0
+  typical: 0
+  max: 0
+rangeM:
+  min: 0
+  typical: 0
+  max: 0
+rangeNotes: "Full-duplex over TCP/TLS (ws/wss); inherits bearer range."
+ops:
+  direction: bidirectional
+  availability: session
+  coverage: local
+  mobility: nomadic
+  spectrum: inherit
+  outageTypicalS: 5
+  storeAndForward: false
+  geography:
+    markets:
+      - inherit
+    notes: Path MTU and proxy idle timeouts follow the IP bearer.
+packetNotes: RFC 6455 frames over ws/wss. Servers often cap message size (64 KiB class). Fragmentation allowed — still plan packed thin frames on constrained bearers.
+catalog: websocket

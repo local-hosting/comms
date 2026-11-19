@@ -1,0 +1,117 @@
+# Canonical planning markets and RF regional plans (authoritative — profiles reference ids only).
+
+markets:
+  - id: inherit
+    label: Inherits upstream bearer
+  - id: n/a
+    label: Not applicable (non-geographic)
+  - id: site
+    label: Single site / LAN plant
+  - id: ww
+    label: Worldwide (protocol or constellation)
+  - id: eu
+    label: Europe (EEA)
+    itu: 1
+  - id: uk
+    label: United Kingdom
+    itu: 1
+  - id: us
+    label: United States
+    itu: 2
+  - id: ca
+    label: Canada
+    itu: 2
+  - id: latam
+    label: Latin America
+    itu: 2
+  - id: apac
+    label: Asia-Pacific (broad)
+    itu: 3
+  - id: jp
+    label: Japan
+    itu: 3
+  - id: kr
+    label: South Korea
+    itu: 3
+  - id: cn
+    label: China
+    itu: 3
+  - id: in
+    label: India
+    itu: 3
+  - id: au-nz
+    label: Australia & New Zealand
+    itu: 3
+  - id: mena
+    label: Middle East & North Africa
+    itu: 1
+  - id: africa
+    label: Sub-Saharan Africa
+    itu: 1
+  - id: ru
+    label: Russia
+    itu: 1
+
+lorawanBandPlans:
+  - id: EU868
+    markets: [eu, uk, mena, africa]
+  - id: EU433
+    markets: [eu]
+  - id: US915
+    markets: [us, latam]
+  - id: AU915
+    markets: [au-nz]
+  - id: AS923-1
+    markets: [jp]
+  - id: AS923-2
+    markets: [apac]
+  - id: AS923-3
+    markets: [kr]
+  - id: AS923-4
+    markets: [apac]
+  - id: KR920
+    markets: [kr]
+  - id: IN865
+    markets: [in]
+  - id: CN470
+    markets: [cn]
+  - id: CN470-510
+    markets: [cn]
+  - id: RU864
+    markets: [ru, eu]
+
+sigfoxRadioConfigs:
+  - id: RC1
+    markets: [eu, uk, mena, africa]
+  - id: RC2
+    markets: [us, ca]
+  - id: RC3
+    markets: [jp]
+  - id: RC4
+    markets: [apac, au-nz, latam]
+  - id: RC5
+    markets: [kr]
+  - id: RC6
+    markets: [in]
+  - id: RC7
+    markets: [ru]
+
+zwaveRegions:
+  - id: EU
+    markets: [eu, uk]
+  - id: US
+    markets: [us, ca]
+  - id: JP
+    markets: [jp]
+  - id: ANZ
+    markets: [au-nz]
+  - id: HK
+    markets: [apac]
+  - id: KR
+    markets: [kr]
+  - id: IL
+    markets: [mena]
+  - id: RU
+    markets: [ru, eu]
+  - id: CN
+    markets: [cn]

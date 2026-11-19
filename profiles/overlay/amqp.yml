@@ -1,0 +1,32 @@
+id: amqp
+name: AMQP 1.0
+kind: app
+pipe: none
+payloadBytes:
+  min: 0
+  typical: 4096
+  max: 1048576
+bitrateBps:
+  min: 0
+  typical: 0
+  max: 0
+rangeM:
+  min: 0
+  typical: 0
+  max: 0
+rangeNotes: "TCP/TLS broker; inherits bearer."
+ops:
+  direction: bidirectional
+  availability: session
+  coverage: local
+  mobility: nomadic
+  spectrum: inherit
+  outageTypicalS: 0
+  storeAndForward: false
+  geography:
+    markets:
+      - inherit
+packetNotes: OASIS AMQP 1.0 message sections over TCP/TLS or WebSocket binding.
+specRefs:
+  - https://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-v1.0-os.html
+catalog: amqp

@@ -1,0 +1,63 @@
+# Overlay ↔ bearer planning matrix (expanded at build → dist/stack.json).
+# `use` merges named bearer sets; `bearers` replaces with an explicit list.
+
+bearerSets:
+  ip-access:
+    - wifi
+    - ethernet
+    - thread
+    - 6lowpan
+    - wi-sun
+    - zigbee
+    - bluetooth
+    - 4g
+    - 5g
+    - lte-m
+    - nb-iot
+    - 3g
+    - 2g
+    - starlink
+    - wimax
+    - dect-nr-plus
+    - amazon-sidewalk
+    - dsrc
+    - cv2x
+    - private-lte
+  lpwan-uplink:
+    - lorawan
+    - lora
+    - longfi
+    - sigfox
+    - rpma
+    - mioty
+    - weightless
+    - dash7
+    - most-link
+  sat-mss:
+    - iridium
+    - satellite
+
+overlays:
+  http:
+    use: [ip-access, sat-mss]
+  mqtt:
+    use: [ip-access, lpwan-uplink, sat-mss]
+  websocket:
+    use: [ip-access, sat-mss]
+  webrtc:
+    use: [ip-access, sat-mss]
+  matter:
+    bearers: [thread, wifi, ethernet]
+  coap:
+    use: [ip-access, lpwan-uplink]
+  lwm2m:
+    use: [ip-access, lpwan-uplink, sat-mss]
+  amqp:
+    use: [ip-access]
+  grpc:
+    use: [ip-access]
+  opc-ua:
+    use: [ip-access]
+  modbus-tcp:
+    use: [ip-access]
+    bearers: [plc]

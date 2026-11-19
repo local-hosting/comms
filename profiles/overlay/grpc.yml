@@ -1,0 +1,32 @@
+id: grpc
+name: gRPC (HTTP/2)
+kind: app
+pipe: none
+payloadBytes:
+  min: 0
+  typical: 8192
+  max: 4194304
+bitrateBps:
+  min: 0
+  typical: 0
+  max: 0
+rangeM:
+  min: 0
+  typical: 0
+  max: 0
+rangeNotes: "HTTP/2 over TLS; inherits bearer."
+ops:
+  direction: bidirectional
+  availability: session
+  coverage: local
+  mobility: nomadic
+  spectrum: inherit
+  outageTypicalS: 0
+  storeAndForward: false
+  geography:
+    markets:
+      - inherit
+packetNotes: Default 4 MiB gRPC message cap (negotiable); prefer streaming on thin bearers.
+specRefs:
+  - https://github.com/grpc/grpc/blob/master/doc/PROTOCOL-HTTP2.md
+catalog: grpc

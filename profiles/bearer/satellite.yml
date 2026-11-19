@@ -1,0 +1,30 @@
+id: satellite
+name: Satellite IoT (generic MSS/LEO)
+kind: rf
+pipe: thin
+payloadBytes:
+  min: 1
+  typical: 64
+  max: 340
+bitrateBps:
+  min: 50
+  typical: 1200
+  max: 20000
+rangeM:
+  min: 1
+  typical: 1
+  max: 1
+rangeNotes: "Sentinel rangeM (not a ground hop in m). MSS sky view + operator footprint — use ops.geography, not meters."
+ops:
+  direction: downlink-limited
+  availability: intermittent
+  coverage: global
+  mobility: mobile
+  spectrum: licensed
+  outageTypicalS: 900
+  storeAndForward: true
+  geography:
+    markets:
+      - ww
+    notes: Generic MSS sat-IoT; vendor footprint differs.
+packetNotes: Catch-all for non-Iridium sat IoT (short messages / store-and-forward). Prefer vendor-specific ids when known. Fat heal via terrestrial backhaul only.

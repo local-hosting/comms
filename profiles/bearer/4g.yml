@@ -1,0 +1,31 @@
+id: 4g
+name: 4G LTE
+kind: rf
+pipe: both
+payloadBytes:
+  min: 64
+  typical: 1400
+  max: 1500
+bitrateBps:
+  min: 1000000
+  typical: 20000000
+  max: 150000000
+rangeM:
+  min: 500
+  typical: 8000
+  max: 50000
+rangeNotes: "LTE macro; typical IoT assumes tower backhaul, not device-to-device."
+ops:
+  direction: bidirectional
+  availability: session
+  coverage: national
+  mobility: mobile
+  spectrum: licensed
+  outageTypicalS: 60
+  storeAndForward: false
+  geography:
+    markets:
+      - ww
+    notes: LTE macro; roaming and rural dead zones affect continuity.
+packetNotes: Standard IP MTU; primary fat-pipe heal path among cellular options.
+catalog: 4g

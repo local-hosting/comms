@@ -1,0 +1,37 @@
+id: plc
+name: Power-Line Communication (G.hn / PRIME)
+kind: wired
+pipe: both
+payloadBytes:
+  min: 32
+  typical: 300
+  max: 1500
+bitrateBps:
+  min: 50000
+  typical: 4000000
+  max: 10000000
+rangeM:
+  min: 10
+  typical: 200
+  max: 1000
+rangeNotes: "Building / feeder plant over power wiring — not Ethernet PHY."
+latencyMs:
+  min: 5
+  typical: 25
+  max: 100
+ops:
+  direction: bidirectional
+  availability: session
+  coverage: local
+  mobility: fixed
+  spectrum: wired
+  outageTypicalS: 5
+  storeAndForward: false
+  geography:
+    markets:
+      - ww
+    notes: Utility AMI and in-home PLC; noise and breaker topology dominate.
+packetNotes: IPv4/6 or utility L2 stacks on PLC MAC; Modbus/TCP gateway common.
+specRefs:
+  - https://www.itu.int/rec/T-REC-G.9960
+catalog: plc

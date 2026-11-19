@@ -1,0 +1,31 @@
+id: nfc
+name: NFC
+kind: rf
+pipe: both
+payloadBytes:
+  min: 16
+  typical: 128
+  max: 8192
+bitrateBps:
+  min: 106000
+  typical: 424000
+  max: 848000
+rangeM:
+  min: 0.01
+  typical: 0.04
+  max: 0.1
+rangeNotes: "ISO 14443/15693 induction field (~4 cm typical)."
+ops:
+  direction: bidirectional
+  availability: session
+  coverage: touch
+  mobility: fixed
+  spectrum: unlicensed
+  outageTypicalS: 0
+  storeAndForward: false
+  geography:
+    markets:
+      - ww
+    notes: 13.56 MHz near-field.
+packetNotes: ISO 14443/15693; touch-range. Can shove a fat pack in one tap; not mesh.
+catalog: nfc

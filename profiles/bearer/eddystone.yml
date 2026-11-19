@@ -1,0 +1,31 @@
+id: eddystone
+name: Eddystone (BLE beacon)
+kind: rf
+pipe: thin
+payloadBytes:
+  min: 1
+  typical: 20
+  max: 31
+bitrateBps:
+  min: 125000
+  typical: 1000000
+  max: 2000000
+rangeM:
+  min: 1
+  typical: 30
+  max: 100
+rangeNotes: "BLE advertisement only; same hop as observer radio."
+ops:
+  direction: uplink-only
+  availability: intermittent
+  coverage: personal
+  mobility: fixed
+  spectrum: unlicensed
+  outageTypicalS: 0
+  storeAndForward: false
+  geography:
+    markets:
+      - ww
+    notes: BLE beacon burst; observer must be in range.
+packetNotes: BLE advertisement frames only (UID/URL/TLM). Not a bidirectional thin-pipe transport.
+catalog: eddystone

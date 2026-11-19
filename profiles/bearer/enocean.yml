@@ -1,0 +1,32 @@
+id: enocean
+name: EnOcean
+kind: rf
+pipe: thin
+payloadBytes:
+  min: 1
+  typical: 14
+  max: 21
+bitrateBps:
+  min: 10000
+  typical: 125000
+  max: 125000
+rangeM:
+  min: 10
+  typical: 30
+  max: 50
+rangeNotes: "Sub-GHz ERP telegrams; building automation distances."
+ops:
+  direction: uplink-only
+  availability: intermittent
+  coverage: local
+  mobility: fixed
+  spectrum: unlicensed
+  outageTypicalS: 30
+  storeAndForward: false
+  geography:
+    markets:
+      - eu
+      - us
+      - jp
+    notes: Sub-GHz ERP; band plans differ by market.
+packetNotes: Very small ERP telegrams (often ≤14–21 B). Thin only; not a vocab heal path.

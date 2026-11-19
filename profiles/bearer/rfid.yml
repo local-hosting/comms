@@ -1,0 +1,31 @@
+id: rfid
+name: RFID
+kind: rf
+pipe: thin
+payloadBytes:
+  min: 1
+  typical: 12
+  max: 64
+bitrateBps:
+  min: 6400
+  typical: 40000
+  max: 640000
+rangeM:
+  min: 0.01
+  typical: 3
+  max: 10
+rangeNotes: "UHF passive tag read at gate/dock; NFC HF much shorter."
+ops:
+  direction: receive-only
+  availability: intermittent
+  coverage: personal
+  mobility: fixed
+  spectrum: unlicensed
+  outageTypicalS: 0
+  storeAndForward: false
+  geography:
+    markets:
+      - ww
+    notes: UHF gate reads vs HF NFC; yard geometry.
+packetNotes: EPC/tag memory reads; not a general bidirectional frame transport.
+catalog: rfid

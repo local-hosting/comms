@@ -1,0 +1,32 @@
+id: lwm2m
+name: LwM2M (OMA)
+kind: app
+pipe: none
+payloadBytes:
+  min: 0
+  typical: 512
+  max: 1152
+bitrateBps:
+  min: 0
+  typical: 0
+  max: 0
+rangeM:
+  min: 0
+  typical: 0
+  max: 0
+rangeNotes: "Object layer over CoAP/UDP; inherits bearer."
+ops:
+  direction: bidirectional
+  availability: session
+  coverage: regional
+  mobility: fixed
+  spectrum: inherit
+  outageTypicalS: 0
+  storeAndForward: false
+  geography:
+    markets:
+      - inherit
+packetNotes: LwM2M sits on CoAP; plan CoAP/UDP limits then object update size.
+specRefs:
+  - https://openmobilealliance.org/specifications/lwm2m/
+catalog: lwm2m

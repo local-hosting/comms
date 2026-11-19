@@ -1,0 +1,30 @@
+id: matter
+name: Matter
+kind: app
+pipe: none
+payloadBytes:
+  min: 0
+  typical: 0
+  max: 0
+bitrateBps:
+  min: 0
+  typical: 0
+  max: 0
+rangeM:
+  min: 0
+  typical: 0
+  max: 0
+rangeNotes: "App layer over Thread/Wi-Fi/Ethernet — use bearer `rangeM`."
+ops:
+  direction: bidirectional
+  availability: session
+  coverage: local
+  mobility: fixed
+  spectrum: inherit
+  outageTypicalS: 0
+  storeAndForward: false
+  geography:
+    markets:
+      - inherit
+    notes: Plan geography on Thread/Wi-Fi/Ethernet bearer.
+packetNotes: "Application layer over Thread, Wi-Fi, or Ethernet. Call forLink on the bearer (`thread`, `wifi`, `ethernet`), not Matter itself."

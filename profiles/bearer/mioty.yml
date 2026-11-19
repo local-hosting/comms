@@ -1,0 +1,36 @@
+id: mioty
+name: mioty
+kind: rf
+pipe: thin
+payloadBytes:
+  min: 1
+  typical: 24
+  max: 245
+bitrateBps:
+  min: 100
+  typical: 400
+  max: 2400
+rangeM:
+  min: 1000
+  typical: 5000
+  max: 15000
+rangeNotes: "TSMA LPWAN; mioty alliance cites multi-km rural base-station links."
+ops:
+  direction: bidirectional
+  availability: intermittent
+  coverage: regional
+  mobility: fixed
+  spectrum: unlicensed
+  outageTypicalS: 90
+  storeAndForward: true
+  usage:
+    dutyCyclePct:
+      min: 0.1
+      typical: 1
+      max: 10
+  geography:
+    markets:
+      - eu
+      - us
+    notes: TSMA LPWAN; ETSI duty cycle and base-station density.
+packetNotes: Telegram-splitting UNB. Small uplinks; plan like Sigfox/LoRa thin — no fat heal on-air.

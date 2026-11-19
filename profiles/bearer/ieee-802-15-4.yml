@@ -1,0 +1,31 @@
+id: ieee-802-15-4
+name: IEEE 802.15.4
+kind: rf
+pipe: thin
+payloadBytes:
+  min: 50
+  typical: 90
+  max: 102
+bitrateBps:
+  min: 20000
+  typical: 250000
+  max: 250000
+rangeM:
+  min: 5
+  typical: 30
+  max: 100
+rangeNotes: "2.4 GHz per-hop; aMaxMACFrameSize 102 B (127 B PSDU − overhead)."
+ops:
+  direction: bidirectional
+  availability: session
+  coverage: local
+  mobility: fixed
+  spectrum: unlicensed
+  outageTypicalS: 3
+  storeAndForward: false
+  geography:
+    markets:
+      - ww
+    notes: 2.4 GHz global; sub-GHz variants in some markets.
+packetNotes: Max PSDU 127 B; MAC MSDU up to 102 B (aMaxMACFrameSize). Thread/Zigbee APS smaller.
+catalog: ieee-802-15-4

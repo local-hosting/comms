@@ -1,0 +1,122 @@
+# Tags for navigation and filters — not filesystem layout.
+# Every profile id must appear at least once; a profile may appear under multiple tags.
+
+tags:
+  - id: cellular
+    name: Cellular (licensed macro)
+    description: Licensed mobile WAN — 2G through 5G, LTE-M, NB-IoT.
+    profiles:
+      - 2g
+      - 3g
+      - 4g
+      - 5g
+      - lte-m
+      - nb-iot
+      - private-lte
+
+  - id: lpwan
+    name: LPWAN
+    description: Low-power wide-area — LoRa family, Sigfox, RPMA, mioty, Weightless, DASH7, MOSTLink.
+    profiles:
+      - lorawan
+      - lora
+      - longfi
+      - sigfox
+      - rpma
+      - mioty
+      - weightless
+      - dash7
+      - most-link
+
+  - id: mesh-802154
+    name: 802.15.4 mesh & flood networks
+    description: Zigbee, Thread, 6LoWPAN, Wi-SUN, Meshtastic, raw 802.15.4.
+    profiles:
+      - zigbee
+      - thread
+      - 6lowpan
+      - ieee-802-15-4
+      - wi-sun
+      - meshtastic
+
+  - id: subghz-building
+    name: Sub-GHz building & metering
+    description: Z-Wave, EnOcean ERP, wireless M-Bus.
+    profiles:
+      - z-wave
+      - enocean
+      - wmbus
+
+  - id: wlan
+    name: Wi‑Fi & broadband wireless LAN
+    description: Wi‑Fi, Wi‑Fi HaLow, WiMAX.
+    profiles:
+      - wifi
+      - wifi-halow
+      - wimax
+
+  - id: wired-lan
+    name: Wired LAN
+    description: IEEE 802.3 Ethernet (tag; category folder is `wired`).
+    profiles:
+      - ethernet
+      - plc
+
+  - id: satellite
+    name: Satellite & MSS
+    description: Starlink, satellite IoT MSS, Iridium.
+    profiles:
+      - starlink
+      - satellite
+      - iridium
+
+  - id: vehicular
+    name: Vehicular (V2X)
+    description: DSRC / 802.11p and C-V2X.
+    profiles:
+      - dsrc
+      - cv2x
+
+  - id: personal-area
+    name: Personal area & touch
+    description: BLE, beacons, NFC, RFID, short-range IR.
+    profiles:
+      - bluetooth
+      - eddystone
+      - nfc
+      - rfid
+      - infrared
+      - uwb
+
+  - id: platform-network
+    name: Operator / platform WAN
+    description: Cloud-mediated WAN (e.g. Amazon Sidewalk).
+    profiles:
+      - amazon-sidewalk
+
+  - id: cordless-mesh
+    name: DECT NR+
+    description: DECT-2020 NR mesh / cordless IoT.
+    profiles:
+      - dect-nr-plus
+
+  - id: fieldbus-overlay
+    name: Field & industrial overlays
+    description: Modbus/TCP, OPC UA, AMQP, gRPC on IP or PLC bearers.
+    profiles:
+      - modbus-tcp
+      - opc-ua
+      - amqp
+      - grpc
+
+  - id: app-overlay
+    name: Application overlays
+    description: HTTP, MQTT, CoAP, LwM2M, WebSocket, WebRTC, Matter — plan on the bearer (pipe none).
+    profiles:
+      - http
+      - mqtt
+      - coap
+      - lwm2m
+      - websocket
+      - webrtc
+      - matter

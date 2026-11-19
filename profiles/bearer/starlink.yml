@@ -1,0 +1,40 @@
+id: starlink
+name: Starlink
+kind: rf
+pipe: both
+payloadBytes:
+  min: 64
+  typical: 1400
+  max: 1500
+bitrateBps:
+  min: 10000000
+  typical: 100000000
+  max: 500000000
+rangeM:
+  min: 1
+  typical: 1
+  max: 1
+rangeNotes: "Sentinel rangeM (not a ground hop in m). LEO dish-to-satellite link — plan IP budgets, not local RF meters."
+latencyMs:
+  min: 20
+  typical: 40
+  max: 80
+ops:
+  direction: bidirectional
+  availability: session
+  coverage: national
+  mobility: nomadic
+  spectrum: licensed
+  outageTypicalS: 30
+  storeAndForward: false
+  geography:
+    markets:
+      - us
+      - ca
+      - eu
+      - uk
+      - au-nz
+      - jp
+      - latam
+    notes: LEO terminal; weather and obstruction on dish link.
+packetNotes: LEO broadband IP (dish/terminal). High latency vs fiber but fat heal and thin frames both fine. Not a sensor uplink PHY.

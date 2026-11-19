@@ -1,0 +1,31 @@
+id: amazon-sidewalk
+name: Amazon Sidewalk
+kind: rf
+pipe: thin
+payloadBytes:
+  min: 8
+  typical: 50
+  max: 255
+bitrateBps:
+  min: 500
+  typical: 50000
+  max: 1000000
+rangeM:
+  min: 50
+  typical: 200
+  max: 800
+rangeNotes: "Neighbor-gateway hops (BLE + Sub-GHz); not end-to-end WAN."
+ops:
+  direction: downlink-limited
+  availability: intermittent
+  coverage: regional
+  mobility: fixed
+  spectrum: unlicensed
+  outageTypicalS: 300
+  storeAndForward: true
+  geography:
+    markets:
+      - us
+    notes: Sidewalk bridge density; not uniform nationally.
+packetNotes: BLE + Sidewalk Sub-GHz hops via neighbor gateways. Small uplinks; treat as thin. Fat heal via the gateway’s Wi-Fi/Ethernet backhaul, not Sidewalk air.
+catalog: network-amazon-sidewalk

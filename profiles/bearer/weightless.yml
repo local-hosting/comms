@@ -1,0 +1,32 @@
+id: weightless
+name: Weightless
+kind: rf
+pipe: thin
+payloadBytes:
+  min: 1
+  typical: 48
+  max: 256
+bitrateBps:
+  min: 100
+  typical: 2500
+  max: 100000
+rangeM:
+  min: 1000
+  typical: 5000
+  max: 15000
+rangeNotes: "Weightless-N/P/W Sub-GHz LPWAN class."
+ops:
+  direction: bidirectional
+  availability: intermittent
+  coverage: regional
+  mobility: fixed
+  spectrum: unlicensed
+  outageTypicalS: 120
+  storeAndForward: true
+  geography:
+    markets:
+      - eu
+      - uk
+      - us
+    notes: Weightless-N/P/W; sparse public infrastructure.
+packetNotes: Weightless-N/P/W variants. Small uplinks; plan packed thin frames. Fat heal off-air.

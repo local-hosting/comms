@@ -1,0 +1,31 @@
+id: 3g
+name: 3G (UMTS/HSPA)
+kind: rf
+pipe: both
+payloadBytes:
+  min: 64
+  typical: 1200
+  max: 1500
+bitrateBps:
+  min: 64000
+  typical: 1000000
+  max: 10000000
+rangeM:
+  min: 500
+  typical: 5000
+  max: 35000
+rangeNotes: "UMTS/HSPA macro cell; indoor penetration weaker than LTE."
+ops:
+  direction: bidirectional
+  availability: session
+  coverage: national
+  mobility: mobile
+  spectrum: licensed
+  outageTypicalS: 90
+  storeAndForward: false
+  geography:
+    markets:
+      - ww
+    notes: UMTS/HSPA; legacy cellular — coverage shrinking globally.
+packetNotes: IP bearer; fat pipe practical when coverage is good.
+catalog: 3g
