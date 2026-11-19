@@ -26,6 +26,6 @@ ops:
   geography:
     markets:
       - ww
-    notes: UMTS/HSPA; legacy cellular — coverage shrinking globally.
+    notes: UMTS/HSPA; 3G cellular — coverage shrinking globally.
 packetNotes: IP bearer; fat pipe practical when coverage is good.
 catalog: 3g

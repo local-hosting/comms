@@ -71,7 +71,7 @@ These informed caps and notes on profiles that do not yet carry their own `specR
 | Meshtastic application payload | `meshtastic` max **233** | [Meshtastic protocol docs](https://github.com/meshtastic/meshtastic/blob/master/docs/protocol.md) (`DATA_PAYLOAD_LEN`) |
 | Sigfox UL/DL sizes & bitrates | `sigfox` 12 B / 8 B, 100–600 bps | [What is Sigfox?](https://sigfox.com/what-is-sigfox/), AWS Sigfox whitepaper (above) |
 | Iridium SBD MO/MT limits | `iridium` max **340** MO, notes for MT **270** | Iridium SBD developer guides (e.g. vendor PDF summaries of 9602-class limits) |
-| BLE legacy advertising | `eddystone` max **31** B | [Silicon Labs — advertising data basics](https://docs.silabs.com/bluetooth/latest/bluetooth-fundamentals-advertising-scanning/advertising-data-basics) |
+| BLE advertising payload (31 B AD) | `eddystone` max **31** B | [Silicon Labs — advertising data basics](https://docs.silabs.com/bluetooth/latest/bluetooth-fundamentals-advertising-scanning/advertising-data-basics) |
 | RFID UHF tag EPC class | `rfid` bitrate / payload floors | EPC Gen2 air-interface planning figures |
 | IEEE 802.11 MSDU | `dsrc` max **2304** | 802.11 / 802.11p MSDU size literature |
 | MQTT maximum publish length | `mqtt` max **268435455** | [MQTT v3.1.1 §2.2.3 (errata)](https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/errata01/os/mqtt-v3.1.1-errata01-os-complete.html) |
