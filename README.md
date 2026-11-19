@@ -36,7 +36,8 @@ Overlay **zeros** on bitrate/range inherit the bearer; overlay payload `typical:
 ### Frames integration
 
 - **`@local-hosting/frames/core`** — codecs only; no comms catalog load.
-- **`@local-hosting/frames/link`** or full **`@local-hosting/frames`** — consumes this catalog; **`planFrame(bearer, bytes, overlay?)`** = stack + budgets + **`preferEncode`**; **`forLink`** is bearer-only shorthand.
+- **`@local-hosting/frames`** / **`./core`** — codecs only; comms not required.
+- **`@local-hosting/frames/link`** — optional comms peer; **`planFrame`**, **`forLink`**, **`preferEncodeFor`** (comms planning + packed vs text). Registry and stacks: **`@local-hosting/comms`**.
 
 ## Sources & references
 
