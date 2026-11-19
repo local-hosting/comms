@@ -1,0 +1,32 @@
+id: mqtt
+name: MQTT
+kind: app
+pipe: none
+payloadBytes:
+  min: 0
+  typical: 256
+  max: 268435455
+bitrateBps:
+  min: 0
+  typical: 0
+  max: 0
+rangeM:
+  min: 0
+  typical: 0
+  max: 0
+rangeNotes: "TCP/TLS app layer; inherits bearer."
+ops:
+  direction: bidirectional
+  availability: session
+  coverage: local
+  mobility: nomadic
+  spectrum: inherit
+  outageTypicalS: 0
+  storeAndForward: false
+  geography:
+    markets:
+      - inherit
+packetNotes: Application protocol over TCP/TLS (or QUIC). Inherit limits from the bearer (Wi-Fi, LTE, …).
+specRefs:
+  - https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/mqtt-v3.1.1.html
+catalog: mqtt

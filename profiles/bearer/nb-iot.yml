@@ -1,0 +1,31 @@
+id: nb-iot
+name: NB-IoT
+kind: rf
+pipe: both
+payloadBytes:
+  min: 16
+  typical: 200
+  max: 1600
+bitrateBps:
+  min: 1000
+  typical: 20000
+  max: 250000
+rangeM:
+  min: 500
+  typical: 8000
+  max: 35000
+rangeNotes: "3GPP NB-IoT macro; repetition/coverage enhancement common."
+ops:
+  direction: bidirectional
+  availability: session
+  coverage: national
+  mobility: mobile
+  spectrum: licensed
+  outageTypicalS: 60
+  storeAndForward: false
+  geography:
+    markets:
+      - ww
+    notes: NB-IoT operator bands; in-building depth often better than 2G.
+packetNotes: 3GPP CIoT; IP or Non-IP. Small MTUs common; can carry thin always, short fat packs when linked.
+catalog: nb-iot

@@ -1,0 +1,51 @@
+id: z-wave
+name: Z-Wave
+kind: rf
+pipe: thin
+payloadBytes:
+  min: 8
+  typical: 48
+  max: 64
+bitrateBps:
+  min: 9600
+  typical: 40000
+  max: 100000
+rangeM:
+  min: 10
+  typical: 30
+  max: 400
+rangeNotes: "Sub-GHz mesh; Z-Wave LR outdoor up to ~400 m class."
+ops:
+  direction: bidirectional
+  availability: session
+  coverage: local
+  mobility: fixed
+  spectrum: unlicensed
+  outageTypicalS: 5
+  storeAndForward: false
+  geography:
+    markets:
+      - eu
+      - uk
+      - us
+      - ca
+      - jp
+      - au-nz
+      - kr
+      - mena
+      - cn
+      - apac
+      - ru
+    rf:
+      zwave:
+        - EU
+        - US
+        - JP
+        - ANZ
+        - HK
+        - KR
+        - IL
+        - RU
+        - CN
+    notes: Sub-GHz mesh; market-specific frequency map.
+packetNotes: Sub-GHz mesh; classic frames small. Z-Wave LR larger range still thin-pipe class for wire frames.

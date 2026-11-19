@@ -1,0 +1,32 @@
+id: coap
+name: CoAP (RFC 7252)
+kind: app
+pipe: none
+payloadBytes:
+  min: 0
+  typical: 256
+  max: 1152
+bitrateBps:
+  min: 0
+  typical: 0
+  max: 0
+rangeM:
+  min: 0
+  typical: 0
+  max: 0
+rangeNotes: "UDP app layer; inherits bearer."
+ops:
+  direction: bidirectional
+  availability: intermittent
+  coverage: local
+  mobility: nomadic
+  spectrum: inherit
+  outageTypicalS: 0
+  storeAndForward: false
+  geography:
+    markets:
+      - inherit
+packetNotes: UDP CoAP datagrams; 1152 B class default block size with block-wise transfer for larger.
+specRefs:
+  - https://www.rfc-editor.org/rfc/rfc7252
+catalog: coap

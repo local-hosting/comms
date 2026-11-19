@@ -1,0 +1,32 @@
+id: wifi-halow
+name: Wi-Fi HaLow (802.11ah)
+kind: rf
+pipe: both
+payloadBytes:
+  min: 64
+  typical: 700
+  max: 1500
+bitrateBps:
+  min: 150000
+  typical: 4000000
+  max: 86000000
+rangeM:
+  min: 10
+  typical: 100
+  max: 1000
+rangeNotes: "802.11ah Sub-GHz; kilometer-class possible sub-1 GHz rural."
+ops:
+  direction: bidirectional
+  availability: session
+  coverage: regional
+  mobility: nomadic
+  spectrum: unlicensed
+  outageTypicalS: 5
+  storeAndForward: false
+  geography:
+    markets:
+      - us
+      - eu
+      - jp
+    notes: 802.11ah sub-GHz; country channel plans.
+packetNotes: Sub-GHz 802.11ah. Better range than 2.4 GHz Wi-Fi; can fat-heal and carry thin frames.

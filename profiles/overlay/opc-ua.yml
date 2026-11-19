@@ -1,0 +1,32 @@
+id: opc-ua
+name: OPC UA (TCP / HTTPS)
+kind: app
+pipe: none
+payloadBytes:
+  min: 0
+  typical: 8192
+  max: 16777216
+bitrateBps:
+  min: 0
+  typical: 0
+  max: 0
+rangeM:
+  min: 0
+  typical: 0
+  max: 0
+rangeNotes: "Industrial client-server; inherits bearer."
+ops:
+  direction: bidirectional
+  availability: session
+  coverage: local
+  mobility: fixed
+  spectrum: inherit
+  outageTypicalS: 0
+  storeAndForward: false
+  geography:
+    markets:
+      - inherit
+packetNotes: OPC UA chunked messages; typical server MaxMessageSize 8–16 KiB unless raised.
+specRefs:
+  - https://reference.opcfoundation.org/
+catalog: opc-ua

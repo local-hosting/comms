@@ -1,0 +1,31 @@
+id: rpma
+name: RPMA (Ingenu)
+kind: rf
+pipe: thin
+payloadBytes:
+  min: 16
+  typical: 64
+  max: 256
+bitrateBps:
+  min: 100
+  typical: 2000
+  max: 20000
+rangeM:
+  min: 1000
+  typical: 5000
+  max: 20000
+rangeNotes: "Ingenu 2.4 GHz LPWAN macro planning."
+ops:
+  direction: bidirectional
+  availability: intermittent
+  coverage: regional
+  mobility: fixed
+  spectrum: unlicensed
+  outageTypicalS: 120
+  storeAndForward: true
+  geography:
+    markets:
+      - us
+    notes: Ingenu 2.4 GHz operator-style networks.
+packetNotes: Proprietary LPWAN; plan small uplink frames. Not a fat-pipe heal path.
+catalog: rpma

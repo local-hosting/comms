@@ -1,0 +1,63 @@
+id: lora
+name: LoRa (PHY, bare)
+kind: rf
+pipe: thin
+payloadBytes:
+  min: 11
+  typical: 51
+  max: 242
+bitrateBps:
+  min: 250
+  typical: 1100
+  max: 5500
+rangeM:
+  min: 500
+  typical: 3000
+  max: 15000
+rangeNotes: "Bare LoRa PHY; SF/BW/window dominate (EU868 typical)."
+ops:
+  direction: bidirectional
+  availability: intermittent
+  coverage: regional
+  mobility: fixed
+  spectrum: unlicensed
+  outageTypicalS: 120
+  storeAndForward: true
+  usage:
+    dutyCyclePct:
+      min: 0.1
+      typical: 1
+      max: 10
+  geography:
+    markets:
+      - eu
+      - uk
+      - us
+      - latam
+      - au-nz
+      - apac
+      - jp
+      - kr
+      - in
+      - cn
+      - mena
+      - africa
+      - ru
+    rf:
+      lorawan:
+        - EU868
+        - EU433
+        - US915
+        - AU915
+        - AS923-1
+        - AS923-2
+        - AS923-3
+        - AS923-4
+        - KR920
+        - IN865
+        - CN470
+        - CN470-510
+        - RU864
+    notes: Regional ISM; private PHY without public WAN SLA.
+packetNotes: "Bare CSS chirp PHY only — no LoRaWAN MAC. SF12≈51 B useful, SF7≈222–242 B. Meshtastic and custom SX1262 stacks use this id, not `lorawan`."
+catalog: lora

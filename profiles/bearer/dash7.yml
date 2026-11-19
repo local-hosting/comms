@@ -1,0 +1,31 @@
+id: dash7
+name: DASH7
+kind: rf
+pipe: thin
+payloadBytes:
+  min: 8
+  typical: 64
+  max: 256
+bitrateBps:
+  min: 9600
+  typical: 55555
+  max: 166667
+rangeM:
+  min: 50
+  typical: 500
+  max: 2000
+rangeNotes: "Sub-GHz DASH7 burst; open-field better than cluttered plant."
+ops:
+  direction: bidirectional
+  availability: intermittent
+  coverage: regional
+  mobility: nomadic
+  spectrum: unlicensed
+  outageTypicalS: 60
+  storeAndForward: true
+  geography:
+    markets:
+      - eu
+      - us
+    notes: Sub-GHz bursty; sparse gateway plans.
+packetNotes: ISO 18000-7 lineage; bursty Sub-GHz. Typical app payloads tens of bytes — thin pipe only.

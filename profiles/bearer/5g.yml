@@ -1,0 +1,31 @@
+id: 5g
+name: 5G NR
+kind: rf
+pipe: both
+payloadBytes:
+  min: 64
+  typical: 1400
+  max: 9000
+bitrateBps:
+  min: 10000000
+  typical: 100000000
+  max: 1000000000
+rangeM:
+  min: 100
+  typical: 2000
+  max: 30000
+rangeNotes: "Sub-6 NR for WAN IoT; mmWave not modeled (tens of meters)."
+ops:
+  direction: bidirectional
+  availability: session
+  coverage: national
+  mobility: mobile
+  spectrum: licensed
+  outageTypicalS: 45
+  storeAndForward: false
+  geography:
+    markets:
+      - ww
+    notes: NR sub-6 nationwide; mmWave pockets are local-only high capacity.
+packetNotes: IP; jumbo rare on WAN. Fat heal and continuous sync fine.
+catalog: 5g

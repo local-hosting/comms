@@ -1,0 +1,63 @@
+id: longfi
+name: LongFi (Helium)
+kind: rf
+pipe: thin
+payloadBytes:
+  min: 11
+  typical: 51
+  max: 222
+bitrateBps:
+  min: 250
+  typical: 1100
+  max: 5500
+rangeM:
+  min: 500
+  typical: 3000
+  max: 15000
+rangeNotes: "Helium LongFi over LoRaWAN-class airtime."
+ops:
+  direction: bidirectional
+  availability: intermittent
+  coverage: regional
+  mobility: fixed
+  spectrum: unlicensed
+  outageTypicalS: 120
+  storeAndForward: true
+  usage:
+    dutyCyclePct:
+      min: 0.1
+      typical: 1
+      max: 10
+  geography:
+    markets:
+      - eu
+      - uk
+      - us
+      - latam
+      - au-nz
+      - apac
+      - jp
+      - kr
+      - in
+      - cn
+      - mena
+      - africa
+      - ru
+    rf:
+      lorawan:
+        - EU868
+        - EU433
+        - US915
+        - AU915
+        - AS923-1
+        - AS923-2
+        - AS923-3
+        - AS923-4
+        - KR920
+        - IN865
+        - CN470
+        - CN470-510
+        - RU864
+    notes: Helium hotspot density — community coverage, not operator SLA.
+packetNotes: Helium LongFi over LoRaWAN-class airtime; treat like LoRaWAN for payload budgeting.
+catalog: longfi

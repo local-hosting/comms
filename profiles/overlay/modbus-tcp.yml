@@ -1,0 +1,32 @@
+id: modbus-tcp
+name: Modbus/TCP
+kind: app
+pipe: none
+payloadBytes:
+  min: 0
+  typical: 256
+  max: 260
+bitrateBps:
+  min: 0
+  typical: 0
+  max: 0
+rangeM:
+  min: 0
+  typical: 0
+  max: 0
+rangeNotes: "TCP port 502 ADU; inherits bearer."
+ops:
+  direction: bidirectional
+  availability: session
+  coverage: local
+  mobility: fixed
+  spectrum: inherit
+  outageTypicalS: 0
+  storeAndForward: false
+  geography:
+    markets:
+      - inherit
+packetNotes: Modbus/TCP PDU max 260 bytes per classic spec; unit id + function + data.
+specRefs:
+  - https://modbus.org/docs/Modbus_Messaging_Implementation_Guide_V1_0b.pdf
+catalog: modbus-tcp

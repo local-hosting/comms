@@ -1,0 +1,31 @@
+id: ethernet
+name: Ethernet
+kind: wired
+pipe: both
+payloadBytes:
+  min: 64
+  typical: 1500
+  max: 9000
+bitrateBps:
+  min: 10000000
+  typical: 1000000000
+  max: 100000000000
+rangeM:
+  min: 1
+  typical: 100
+  max: 10000
+rangeNotes: "Copper ~100 m/channel; fiber spans much longer."
+ops:
+  direction: bidirectional
+  availability: always-on
+  coverage: local
+  mobility: fixed
+  spectrum: wired
+  outageTypicalS: 1
+  storeAndForward: false
+  geography:
+    markets:
+      - site
+    notes: LAN plant; cable/fiber cuts and switch faults.
+packetNotes: IEEE 802.3; standard MTU 1500, jumbo optional. Ideal fat heal path.
+catalog: ethernet

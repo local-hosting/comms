@@ -1,0 +1,64 @@
+id: meshtastic
+name: Meshtastic
+kind: rf
+pipe: thin
+payloadBytes:
+  min: 8
+  typical: 200
+  max: 233
+bitrateBps:
+  min: 250
+  typical: 1100
+  max: 5500
+rangeM:
+  min: 500
+  typical: 5000
+  max: 25000
+latencyMs:
+  min: 200
+  typical: 2000
+  max: 30000
+rangeNotes: "LoRa mesh; multi-hop can extend beyond single P2P hop."
+ops:
+  direction: bidirectional
+  availability: intermittent
+  coverage: regional
+  mobility: nomadic
+  spectrum: unlicensed
+  outageTypicalS: 180
+  storeAndForward: true
+  geography:
+    markets:
+      - eu
+      - uk
+      - us
+      - latam
+      - au-nz
+      - apac
+      - jp
+      - kr
+      - in
+      - cn
+      - mena
+      - africa
+      - ru
+    rf:
+      lorawan:
+        - EU868
+        - EU433
+        - US915
+        - AU915
+        - AS923-1
+        - AS923-2
+        - AS923-3
+        - AS923-4
+        - KR920
+        - IN865
+        - CN470
+        - CN470-510
+        - RU864
+    notes: Ad-hoc mesh; partitions and multi-hop latency common.
+packetNotes: "Runs on bare LoRa PHY (`lora`), not LoRaWAN. App payload after Meshtastic header often ~200 B at mid SF; plan packed thin frames only."
+specRefs:
+  - https://meshtastic.org/docs/overview/
+catalog: network-meshtastic

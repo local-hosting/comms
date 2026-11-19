@@ -1,0 +1,37 @@
+id: wifi
+name: Wi-Fi (IEEE 802.11)
+kind: rf
+pipe: both
+payloadBytes:
+  min: 64
+  typical: 1400
+  max: 2304
+bitrateBps:
+  min: 1000000
+  typical: 50000000
+  max: 1200000000
+rangeM:
+  min: 5
+  typical: 30
+  max: 100
+rangeNotes: "2.4/5/6 GHz AP-client indoor planning envelope."
+latencyMs:
+  min: 2
+  typical: 15
+  max: 80
+ops:
+  direction: bidirectional
+  availability: session
+  coverage: local
+  mobility: nomadic
+  spectrum: unlicensed
+  outageTypicalS: 3
+  storeAndForward: false
+  geography:
+    markets:
+      - ww
+    notes: 2.4/5/6 GHz WLAN; enterprise roaming vs home AP.
+packetNotes: Ethernet-like MSDU; 1500 B IP typical. Preferred fat pipe for vocab heal next to LoRa thin.
+specRefs:
+  - https://www.ieee802.org/11/
+catalog: wifi

@@ -1,0 +1,30 @@
+id: thread
+name: Thread
+kind: rf
+pipe: thin
+payloadBytes:
+  min: 40
+  typical: 80
+  max: 104
+bitrateBps:
+  min: 20000
+  typical: 250000
+  max: 250000
+rangeM:
+  min: 5
+  typical: 30
+  max: 100
+rangeNotes: "802.15.4 mesh hop; border router on Ethernet/Wi-Fi for WAN."
+ops:
+  direction: bidirectional
+  availability: session
+  coverage: local
+  mobility: fixed
+  spectrum: unlicensed
+  outageTypicalS: 5
+  storeAndForward: false
+  geography:
+    markets:
+      - ww
+    notes: IPv6 mesh; border router for WAN.
+packetNotes: IPv6 over 802.15.4. MSDU budgets like Zigbee (~80 B typical). Fat heal via Thread border router Ethernet/Wi-Fi.

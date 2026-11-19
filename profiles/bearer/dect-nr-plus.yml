@@ -1,0 +1,32 @@
+id: dect-nr-plus
+name: DECT NR+
+kind: rf
+pipe: both
+payloadBytes:
+  min: 64
+  typical: 500
+  max: 1500
+bitrateBps:
+  min: 100000
+  typical: 1000000
+  max: 16000000
+rangeM:
+  min: 10
+  typical: 50
+  max: 1000
+rangeNotes: "DECT-2020 NR local mesh; building-scale typical."
+ops:
+  direction: bidirectional
+  availability: session
+  coverage: local
+  mobility: nomadic
+  spectrum: licensed-exempt
+  outageTypicalS: 5
+  storeAndForward: false
+  geography:
+    markets:
+      - eu
+      - us
+      - jp
+    notes: DECT-2020 NR building / campus mesh.
+packetNotes: ETSI DECT-2020 NR. Local mesh/cordless; larger frames than classic LPWAN. Thin always; short fat packs OK.

@@ -1,0 +1,30 @@
+id: http
+name: HTTP
+kind: app
+pipe: none
+payloadBytes:
+  min: 0
+  typical: 0
+  max: 0
+bitrateBps:
+  min: 0
+  typical: 0
+  max: 0
+rangeM:
+  min: 0
+  typical: 0
+  max: 0
+rangeNotes: "Application layer; inherits IP bearer range."
+ops:
+  direction: bidirectional
+  availability: session
+  coverage: local
+  mobility: nomadic
+  spectrum: inherit
+  outageTypicalS: 0
+  storeAndForward: false
+  geography:
+    markets:
+      - inherit
+packetNotes: Application protocol. Inherit MTU/bitrate from the underlying IP bearer.
+catalog: http

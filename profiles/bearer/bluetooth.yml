@@ -1,0 +1,35 @@
+id: bluetooth
+name: Bluetooth / BLE
+kind: rf
+pipe: both
+payloadBytes:
+  min: 20
+  typical: 180
+  max: 512
+bitrateBps:
+  min: 125000
+  typical: 1000000
+  max: 2000000
+rangeM:
+  min: 1
+  typical: 10
+  max: 100
+rangeNotes: "BLE 1M PHY class-2 indoor; mesh/Long Range/extended ADV can exceed."
+latencyMs:
+  min: 5
+  typical: 25
+  max: 150
+ops:
+  direction: bidirectional
+  availability: session
+  coverage: personal
+  mobility: nomadic
+  spectrum: unlicensed
+  outageTypicalS: 2
+  storeAndForward: false
+  geography:
+    markets:
+      - ww
+    notes: 2.4 GHz ISM; coexistence varies by site.
+packetNotes: ADV payload 31 B (ext ADV larger). Connected ATT default 23 B, negotiable MTU often 185–512. Short-range fat possible.
+catalog: bluetooth

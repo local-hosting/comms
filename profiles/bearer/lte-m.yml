@@ -1,0 +1,35 @@
+id: lte-m
+name: LTE-M (Cat-M1)
+kind: rf
+pipe: both
+payloadBytes:
+  min: 64
+  typical: 1000
+  max: 1500
+bitrateBps:
+  min: 10000
+  typical: 300000
+  max: 1000000
+rangeM:
+  min: 500
+  typical: 8000
+  max: 35000
+latencyMs:
+  min: 50
+  typical: 150
+  max: 2000
+rangeNotes: "Cat-M1 macro coverage like LTE with better in-building depth."
+ops:
+  direction: bidirectional
+  availability: session
+  coverage: national
+  mobility: mobile
+  spectrum: licensed
+  outageTypicalS: 45
+  storeAndForward: false
+  geography:
+    markets:
+      - ww
+    notes: Cat-M1 operator footprint; PSM/eDRX stretch apparent outages.
+packetNotes: IP MTU ~1500 when healthy. Suitable for thin frames and occasional fat vocab pulls.
+catalog: lte-m

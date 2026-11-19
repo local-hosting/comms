@@ -1,0 +1,31 @@
+id: infrared
+name: Infrared
+kind: rf
+pipe: thin
+payloadBytes:
+  min: 1
+  typical: 8
+  max: 64
+bitrateBps:
+  min: 1200
+  typical: 9600
+  max: 115200
+rangeM:
+  min: 0.1
+  typical: 5
+  max: 10
+rangeNotes: "IrDA/remote LOS; not mesh."
+ops:
+  direction: bidirectional
+  availability: intermittent
+  coverage: touch
+  mobility: fixed
+  spectrum: n/a
+  outageTypicalS: 0
+  storeAndForward: false
+  geography:
+    markets:
+      - n/a
+    notes: LOS IR; occlusion ends the link instantly.
+packetNotes: IR remote / IrDA-class; line-of-sight, tiny payloads.
+catalog: infrared

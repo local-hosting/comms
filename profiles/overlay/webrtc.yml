@@ -1,0 +1,31 @@
+id: webrtc
+name: WebRTC
+kind: app
+pipe: none
+payloadBytes:
+  min: 0
+  typical: 1200
+  max: 65536
+bitrateBps:
+  min: 0
+  typical: 0
+  max: 0
+rangeM:
+  min: 0
+  typical: 0
+  max: 0
+rangeNotes: "Peer paths mix HTTPS signaling, UDP RTP, and SCTP DataChannels — plan on bearer + STUN/TURN."
+ops:
+  direction: bidirectional
+  availability: session
+  coverage: local
+  mobility: nomadic
+  spectrum: inherit
+  outageTypicalS: 30
+  storeAndForward: false
+  geography:
+    markets:
+      - inherit
+    notes: ICE/TURN region and NAT shape matter more than RF market ids.
+packetNotes: Signaling via HTTP/WebSocket; media on RTP/UDP is not the wire thin/fat pipe. For app data use SCTP DataChannel (default max message often 64 KiB, negotiable). Call forLink on the access bearer or treat DataChannel like IP overlay.
+catalog: webrtc

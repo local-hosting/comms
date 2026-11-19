@@ -1,0 +1,33 @@
+id: wimax
+name: WiMAX
+kind: rf
+pipe: both
+payloadBytes:
+  min: 64
+  typical: 1400
+  max: 1500
+bitrateBps:
+  min: 1000000
+  typical: 10000000
+  max: 70000000
+rangeM:
+  min: 1000
+  typical: 5000
+  max: 50000
+rangeNotes: "802.16 macro last-mile (legacy deployments)."
+ops:
+  direction: bidirectional
+  availability: session
+  coverage: regional
+  mobility: nomadic
+  spectrum: licensed
+  outageTypicalS: 60
+  storeAndForward: false
+  geography:
+    markets:
+      - us
+      - latam
+      - mena
+      - africa
+    notes: 802.16 legacy WISP footprints.
+packetNotes: 802.16 IP-class bearer when available. Prefer as fat heal path; thin frames fine.

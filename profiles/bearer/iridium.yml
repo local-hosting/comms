@@ -1,0 +1,35 @@
+id: iridium
+name: Iridium
+kind: rf
+pipe: thin
+payloadBytes:
+  min: 1
+  typical: 270
+  max: 340
+bitrateBps:
+  min: 100
+  typical: 2400
+  max: 88000
+rangeM:
+  min: 1
+  typical: 1
+  max: 1
+rangeNotes: "Sentinel rangeM (not a ground hop in m). LEO MSS — plan for open sky and payload, not ground meters."
+latencyMs:
+  min: 20000
+  typical: 60000
+  max: 900000
+ops:
+  direction: downlink-limited
+  availability: intermittent
+  coverage: global
+  mobility: mobile
+  spectrum: licensed
+  outageTypicalS: 600
+  storeAndForward: true
+  geography:
+    markets:
+      - ww
+    notes: LEO MSS; sky view and weather affect SBD.
+packetNotes: SBD (9602-class) MO up to 340 B, MT up to 270 B per Iridium SBD guides. Certus/Burst higher but still not a fat vocab pipe.
+catalog: iridium
