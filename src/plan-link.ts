@@ -1,25 +1,12 @@
 import { effectiveEnvelope, resolveStack } from './effective-envelope.js'
 import type { ResolveStackResult } from './effective-envelope.js'
-import type { LinkRegistry } from './link-registry.js'
+import type { LinkRegistry } from './link-registry-core.js'
 import { getDefaultLinkRegistry, getDefaultStackRules } from './link-registry.js'
-import { isBearerProfile } from './types/comms-profile.js'
-import type { BearerProfile, CommsProfile } from './types/comms-profile.js'
+import type { BearerProfile } from './types/comms-profile.js'
+import type { PlanBearerResult } from './plan-bearer.js'
+import { planBearer as planBearerWithRegistry } from './plan-bearer.js'
 
-export type PlanBearerResult =
-  | {
-      ok: true
-      link: BearerProfile
-      budgetBytes: number
-      allowFatHeal: boolean
-      fitsTypical: boolean
-      fitsMax: boolean
-    }
-  | {
-      ok: false
-      reason: 'unknown_link' | 'no_pipe'
-      linkId: string
-      link?: CommsProfile
-    }
+export type { PlanBearerResult } from './plan-bearer.js'
 
 export type PlanStackResult =
   | {
@@ -34,34 +21,12 @@ export type PlanStackResult =
     }
   | Exclude<ResolveStackResult, { ok: true }>
 
-function planBearerOnLink(
-  link: BearerProfile,
-  linkId: string,
-  payloadBytes: number,
-  registry: LinkRegistry,
-): PlanBearerResult {
-  const budgetBytes = link.payloadBytes.typical
-  return {
-    ok: true,
-    link,
-    budgetBytes,
-    allowFatHeal: link.pipe === 'fat' || link.pipe === 'both',
-    fitsTypical: registry.fitsLink(linkId, payloadBytes),
-    fitsMax: registry.fitsLink(linkId, payloadBytes, { useMax: true }),
-  }
-}
-
 export function planBearer(
   linkId: string,
   payloadBytes: number,
   registry: LinkRegistry = getDefaultLinkRegistry(),
 ): PlanBearerResult {
-  const link = registry.getLink(linkId)
-  if (!link) return { ok: false, reason: 'unknown_link', linkId }
-  if (!isBearerProfile(link)) {
-    return { ok: false, reason: 'no_pipe', linkId, link }
-  }
-  return planBearerOnLink(link, linkId, payloadBytes, registry)
+  return planBearerWithRegistry(linkId, payloadBytes, registry)
 }
 
 export function planStack(
