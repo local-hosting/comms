@@ -1,6 +1,6 @@
 # `@local-hosting/comms`
 
-Catalog of **communication bearers** (not hyperlinks): RF, wired, and logical transports with planning envelopes for wire and future modeler tooling.
+Catalog of **communication bearers** (not hyperlinks): RF, wired, and logical transports with planning envelopes for **frames** and future modeler tooling.
 
 Every profile id must appear in at least one tag (`profiles/tags.yml`).
 
@@ -27,16 +27,16 @@ import {
 } from '@local-hosting/comms'
 ```
 
-`getDefaultLinkRegistry()` loads `dist/catalog.json` on **first use** (after `comms build`). **`planBearer`**, **`planStack`**, and **`resolveStackDefault`** live here — not in wire.
+`getDefaultLinkRegistry()` loads `dist/catalog.json` on **first use** (after `comms build`). **`planBearer`**, **`planStack`**, and **`resolveStackDefault`** live here — canonical link planning (not in frames).
 
 ### Stack planning
 
 Overlay **zeros** on bitrate/range inherit the bearer; overlay payload `typical: 0` inherits fully, otherwise `min(bearer, overlay)` caps apply. `resolveStackDefault` enforces overlay ↔ bearer rules from the built stack index.
 
-### Wire integration
+### Frames integration
 
 - **`@local-hosting/frames/core`** — codecs only; no comms catalog load.
-- **`@local-hosting/frames/link`** or full **`@local-hosting/frames`** — re-exports link helpers; **`planFrame(bearer, bytes, overlay?)`** = stack + budgets + **`preferEncode`**; **`forLink`** is bearer-only shorthand.
+- **`@local-hosting/frames/link`** or full **`@local-hosting/frames`** — consumes this catalog; **`planFrame(bearer, bytes, overlay?)`** = stack + budgets + **`preferEncode`**; **`forLink`** is bearer-only shorthand.
 
 ## Sources & references
 
