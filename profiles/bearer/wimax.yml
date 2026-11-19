@@ -14,7 +14,7 @@ rangeM:
   min: 1000
   typical: 5000
   max: 50000
-rangeNotes: "802.16 macro last-mile (legacy deployments)."
+rangeNotes: "802.16 macro last-mile (remaining deployments)."
 ops:
   direction: bidirectional
   availability: session
@@ -29,5 +29,5 @@ ops:
       - latam
       - mena
       - africa
-    notes: 802.16 legacy WISP footprints.
+    notes: 802.16 WISP footprints.
 packetNotes: 802.16 IP-class bearer when available. Prefer as fat heal path; thin frames fine.

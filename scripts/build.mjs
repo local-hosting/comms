@@ -62,8 +62,8 @@ fs.writeFileSync(catalogPath, `${JSON.stringify(catalog, null, 2)}\n`)
 fs.writeFileSync(aliasesPath, `${JSON.stringify(aliases, null, 2)}\n`)
 fs.writeFileSync(tagsOutPath, `${JSON.stringify(tagsArtifact, null, 2)}\n`)
 fs.writeFileSync(stackOutPath, `${JSON.stringify(stackExpanded, null, 2)}\n`)
-const legacyGroupsPath = path.join(outDir, 'groups.json')
-if (fs.existsSync(legacyGroupsPath)) fs.unlinkSync(legacyGroupsPath)
+const removedGroupsPath = path.join(outDir, 'groups.json')
+if (fs.existsSync(removedGroupsPath)) fs.unlinkSync(removedGroupsPath)
 console.log(
   `wrote ${catalog.length} profiles, ${tags.length} tags → ${path.relative(root, outDir)}`,
 )

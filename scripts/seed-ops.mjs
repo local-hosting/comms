@@ -98,7 +98,7 @@ function lpwan(notes, extra = {}) {
 /** @type {Record<string, object>} */
 const OPS_BY_ID = {
   '2g': cellular('GSM/GPRS macro footprint; sunset in many regions — verify operator support.', 120),
-  '3g': cellular('UMTS/HSPA; legacy cellular — coverage shrinking globally.', 90),
+  '3g': cellular('UMTS/HSPA; 3G cellular — coverage shrinking globally.', 90),
   '4g': cellular('LTE macro; roaming and rural dead zones affect continuity.', 60),
   '5g': cellular('NR sub-6 nationwide; mmWave pockets are local-only high capacity.', 45),
   '6lowpan': {
@@ -438,7 +438,7 @@ const OPS_BY_ID = {
     spectrum: 'licensed',
     outageTypicalS: 60,
     storeAndForward: false,
-    geography: { markets: ['us', 'latam', 'mena', 'africa'], notes: '802.16 legacy WISP footprints.' },
+    geography: { markets: ['us', 'latam', 'mena', 'africa'], notes: '802.16 WISP footprints.' },
   },
   wmbus: {
     direction: 'bidirectional',
