@@ -1,7 +1,7 @@
 {
   "name": "@local-hosting/comms",
   "version": "0.3.0",
-  "description": "Comms bearer catalog (payload, bitrate, range, ops) for wire and modeler.",
+  "description": "Comms bearer catalog (payload, bitrate, range, ops) for frames and modeler.",
   "type": "module",
   "license": "MPL-2.0",
   "private": true,
@@ -31,10 +31,13 @@
   "scripts": {
     "validate": "node scripts/build.mjs --validate-only",
     "build": "node scripts/build.mjs && tsc -p tsconfig.build.json",
+    "clean": "rm -rf dist",
     "typecheck": "yarn build",
     "test": "vitest run",
     "pretest": "yarn build",
-    "prepack": "yarn build"
+    "prepack": "yarn build",
+    "prepare": "yarn build",
+    "ci": "yarn validate && yarn test"
   },
   "devDependencies": {
     "ajv": "^8.17.1",
