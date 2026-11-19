@@ -13,6 +13,16 @@
       "default": "./dist/index.js"
     },
     "./package.json": "./package.json",
+    "./link-registry-core": {
+      "types": "./dist/link-registry-core.d.ts",
+      "import": "./dist/link-registry-core.js",
+      "default": "./dist/link-registry-core.js"
+    },
+    "./plan-bearer": {
+      "types": "./dist/plan-bearer.d.ts",
+      "import": "./dist/plan-bearer.js",
+      "default": "./dist/plan-bearer.js"
+    },
     "./catalog.json": "./dist/catalog.json",
     "./tags.json": "./dist/tags.json",
     "./aliases.json": "./dist/aliases.json",
@@ -38,13 +48,20 @@
     "pretest": "yarn build",
     "prepack": "yarn build",
     "prepare": "yarn build",
-    "ci": "yarn validate && yarn build && yarn test"
+    "ci": "yarn validate && yarn build && yarn test",
+    "demo": "vite --config demo/vite.config.ts",
+    "predemo": "yarn build && yarn workspace @local-hosting/frames build && yarn workspace @local-hosting/compose build"
   },
   "devDependencies": {
+    "@local-hosting/compose": "workspace:*",
+    "@local-hosting/frames": "workspace:*",
+    "@tailwindcss/vite": "^4.1.17",
     "@types/node": "^22.13.10",
     "ajv": "^8.17.1",
     "ajv-formats": "^3.0.1",
+    "buffer": "^6.0.3",
     "js-yaml": "^4.1.0",
+    "tailwindcss": "^4.1.17",
     "typescript": "^5.8.3",
     "vite": "^8.3.8",
     "vitest": "^5.1.1"

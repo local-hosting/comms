@@ -8,11 +8,25 @@ Every profile id must appear in at least one tag (`profiles/tags.yml`).
 
 ## Commands
 
+Uses **Yarn 4.18.1** (`packageManager`). If global `yarn` is still 1.x (common with Homebrew), enable Corepack or call the pinned binary:
+
 ```bash
-yarn workspace @local-hosting/comms validate
-yarn workspace @local-hosting/comms build
-yarn workspace @local-hosting/comms test
+corepack enable && corepack prepare yarn@4.18.1 --activate   # once per machine (brew install corepack if needed)
+node .yarn/releases/yarn-4.18.1.cjs install
 ```
+
+If Yarn errors on `YARN_NPM_AUTH_TOKEN`, your `~/.yarnrc.yml` may still require it (comms only needs public npm). Either export a token for the full workspace (`export YARN_NPM_AUTH_TOKEN="$(gh auth token)"`) or use the same optional form in `~/.yarnrc.yml` as the workspace root: `npmAuthToken: "${YARN_NPM_AUTH_TOKEN-}"`.
+
+```bash
+yarn validate
+yarn build
+yarn test
+yarn demo    # comms link simulator (bearer dropdown, budget meter) — not the frames wire demo
+```
+
+From the workspace root, use `yarn workspace @local-hosting/comms <script>` instead. Requires sibling **frames** and **compose** workspaces for `predemo`.
+
+The **frames** wire notebook demo is separate: `yarn workspace @local-hosting/frames dev` from the workspace root.
 
 `validate` runs JSON Schema (AJV), tags/stack rules, and **planning semantics** (bearer non-zero typicals; overlay inherit zeros; MSS `rangeNotes`; optional `specRefs` / directional payloads).
 
@@ -37,7 +51,19 @@ Overlay **zeros** on bitrate/range inherit the bearer; overlay payload `typical:
 
 - **`@local-hosting/frames/core`** — codecs only; no comms catalog load.
 - **`@local-hosting/frames`** / **`./core`** — codecs only; comms not required.
-- **`@local-hosting/frames/link`** — optional comms peer; **`planFrame`**, **`forLink`**, **`preferEncodeFor`** (comms planning + packed vs text). Registry and stacks: **`@local-hosting/comms`**.
+- **`@local-hosting/frames/link`** — optional comms peer; **`planFrame`**, **`forLink`**, **`preferEncodeFor`**, **`encodeThinFrame`** (comms planning + packed vs text). Registry and stacks: **`@local-hosting/comms`**.
+
+### Thin producer path (normative)
+
+Pack bytes only on constrained bearers — no UTF-8 narrative on production thin profiles:
+
+1. `loadPack(mode)` → `Vocabulary` (`@local-hosting/vocab`) or host-held `vocab_tip`
+2. `composeFromVocabulary` / `composeIntentToCompact` → `CompactFrame` (`@local-hosting/compose`)
+3. `encodeIntentPackedBytes` | `encodeCodesPackedBytes` (`@local-hosting/frames`)
+4. `planFrame(bearerId, payloadBytes, overlay?)` → `preferEncode: 'packed'`, `fitsTypical`
+5. Optional orchestration: `@local-hosting/compose/thin` → **`thinPrepare`**
+
+`encodeThinFrame(frame, bearerId)` in **`@local-hosting/frames/link`** encodes then **fails closed** when `preferEncode !== 'packed'` or `!fitsTypical` (use `allowFatHeal` / queue fat sync instead of sending prose).
 
 ## Sources & references
 
