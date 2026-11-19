@@ -19,5 +19,5 @@ jobs:
           node-version: ${{ env.TOOLCHAIN_NODE }}
       - name: Enable Yarn
         run: corepack enable && corepack prepare yarn@${{ env.TOOLCHAIN_YARN }} --activate
-      - run: yarn install
+      - run: yarn install --immutable
       - run: yarn ci
