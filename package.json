@@ -5,7 +5,14 @@
   "description": "Comms bearer catalog (payload, bitrate, range, ops) for frames and modeler.",
   "type": "module",
   "license": "UNLICENSED",
-  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/local-hosting/comms.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "restricted"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -53,8 +60,6 @@
     "predemo": "yarn build && yarn workspace @local-hosting/frames build && yarn workspace @local-hosting/compose build"
   },
   "devDependencies": {
-    "@local-hosting/compose": "workspace:*",
-    "@local-hosting/frames": "workspace:*",
     "@tailwindcss/vite": "^4.1.17",
     "@types/node": "^22.13.10",
     "ajv": "^8.17.1",
