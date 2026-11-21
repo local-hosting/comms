@@ -238,12 +238,38 @@ function clearHopTimer(id: string): void {
   hopTimers.delete(id)
 }
 
+function sendHintForAttempt(attempt: SendAttempt): void {
+  if (attempts[selected]?.id !== attempt.id) return
+  switch (attempt.phase) {
+    case 'delivered':
+      showSendHint(`Delivered ${attempt.views.packedBytes} B on ${attempt.linkId}`, 'ok')
+      break
+    case 'rejected':
+      showSendHint(attempt.failReason ?? 'rejected by bearer plan', 'err')
+      break
+    case 'hop':
+      showSendHint(
+        attempt.linkId === 'bluetooth'
+          ? `Session open — ${attempt.views.packedBytes} B`
+          : `Hop ${attempt.hopIndex}/${attempt.hopsTotal} — ${attempt.views.packedBytes} B`,
+        'ok',
+      )
+      break
+    case 'queued':
+      showSendHint(`Queued ${attempt.views.packedBytes} B on ${attempt.linkId}…`, 'ok')
+      break
+    default:
+      break
+  }
+}
+
 function advanceHop(attempt: SendAttempt): void {
   if (attempt.phase !== 'hop' && attempt.phase !== 'queued') return
   attempt.hopIndex += 1
   if (attempt.hopIndex >= attempt.hopsTotal) {
     attempt.phase = 'delivered'
     clearHopTimer(attempt.id)
+    sendHintForAttempt(attempt)
     render()
     return
   }
@@ -254,9 +280,11 @@ function advanceHop(attempt: SendAttempt): void {
     attempt.id,
     setTimeout(() => {
       advanceHop(attempt)
+      sendHintForAttempt(attempt)
       render()
     }, delay),
   )
+  sendHintForAttempt(attempt)
   render()
 }
 
@@ -274,8 +302,10 @@ function startLinkSim(attempt: SendAttempt): void {
     setTimeout(() => {
       attempt.phase = 'hop'
       advanceHop(attempt)
+      sendHintForAttempt(attempt)
     }, delay),
   )
+  sendHintForAttempt(attempt)
 }
 
 function typicalOverBudgetMessage(
@@ -673,6 +703,10 @@ function render() {
   }
 
   out.innerHTML = detailHtml(current)
+
+  if (!messageInput.value.trim()) {
+    sendHintForAttempt(current)
+  }
 }
 
 rows.addEventListener('click', (event) => {
@@ -720,10 +754,11 @@ function previewCompose(text: string): void {
 }
 
 function finishSend(views: WireViews, phase: SendPhase): void {
-  showSendHint(
-    `Sent ${views.packedBytes} B — ${phase === 'rejected' ? 'rejected by bearer plan' : 'simulating… watch Transmissions'}`,
-    phase === 'rejected' ? 'err' : 'ok',
-  )
+  if (phase === 'rejected') {
+    showSendHint('rejected by bearer plan', 'err')
+    return
+  }
+  showSendHint(`Sent ${views.packedBytes} B — check Transmissions for hop progress`, 'ok')
 }
 
 linkSelect.addEventListener('change', () => {
